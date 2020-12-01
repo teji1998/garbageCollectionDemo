@@ -26,6 +26,16 @@ namespace GarbageCollectionDemo
                 Console.WriteLine(memory3);
             }
             Console.WriteLine("###############################");
+            long bytes1 = GC.GetTotalMemory(false); //Memory in bytes
+            byte[] memory = new byte[1000 * 1000 * 10]; //Ten million bytes
+            memory[0] = 1; //setting memory(To prevent allocation to be maximized out)
+            long bytes2 = GC.GetTotalMemory(false); //Getting memory
+            long bytes3 = GC.GetTotalMemory(false); //Getting memory
+            Console.WriteLine(bytes1);
+            Console.WriteLine(bytes2);
+            Console.WriteLine(bytes2-bytes1);
+            Console.WriteLine(bytes3);
+            Console.WriteLine(bytes3 -bytes2);
 
         }
     }
